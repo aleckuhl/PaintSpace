@@ -1,0 +1,23 @@
+﻿@model List<LiftoffProj.Models.Post>
+<table class="table">
+
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+
+    </tr>
+
+    @foreach (var post in Model)
+    {
+        <tr>
+            <td>@post.Title</td>
+            <td>@post.Description</td>
+            @*@foreach (Paint paint in post.Paints)
+            {
+                <td>@paint.Name</td>
+            }*@
+
+        </tr>
+    }
+</table>
+<p><a asp-controller="Post" asp-action="Add">Add a new Post</a></p>
