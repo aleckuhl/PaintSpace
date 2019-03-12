@@ -1,0 +1,17 @@
+﻿@model LiftoffProj.ViewModels.AddPaintViewModel
+<form asp-controller="Paint" enctype="multipart/form-data" asp-action="Add" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Color"></label>
+        <input class="form-control" asp-for="Color" />
+        <span asp-validation-for="Color"></span>
+    </div>
+
+    <input type="submit" value="Add Paint" />
+
+</form>

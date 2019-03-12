@@ -2,7 +2,7 @@
 
 <h1>Add Post</h1>
 
-<form asp-controller="Post" asp-action="Add" method="post">
+<form asp-controller="Post" enctype="multipart/form-data" asp-action="Add" method="post">
 
     <div class="form-group">
         <label asp-for="Title"></label>
@@ -17,8 +17,16 @@
 
     <div class="form-group">
         <label asp-for="PaintID"></label>
-        <select asp-for="PaintID" asp-items="Model.Paints></select>
+        <select asp-for="PaintID" asp-items="Model.Paints"></select>
     </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Upload one or more files using this form:</p>
+            <input type="file" name="files" multiple />
+        </div>
+    </div>
+   
 
     <input type="submit" value="Add Post" />
 

@@ -10,7 +10,7 @@
     @foreach (var post in Model)
     {
         <tr>
-            <td>@post.Title</td>
+            <td><a asp-controller="Post" asp-action="ViewPost" asp-route-id=@post.ID>@post.Title</a></td>
             <td>@post.Description</td>
             @*@foreach (Paint paint in post.Paints)
             {

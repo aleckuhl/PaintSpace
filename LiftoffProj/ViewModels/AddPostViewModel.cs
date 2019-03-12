@@ -19,6 +19,8 @@ namespace LiftoffProj.ViewModels
         [Required]
         public int PaintID { get; set; }
 
+
+
         public List<SelectListItem> Paints { get; set; }
 
         public MultiSelectList paintsList;

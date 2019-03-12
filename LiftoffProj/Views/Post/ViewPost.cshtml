@@ -1,0 +1,21 @@
+﻿@model LiftoffProj.ViewModels.ViewPostViewModel
+<div>
+    <header>@Model.Post.Title</header>
+</div>
+<div>
+    <ul>
+        @foreach (var link in Model.Post.ImageLinks)
+        {
+            <li><image src="@link.StreamLink" width="400" height="400"></image></li>
+        }
+    </ul>
+</div>
+<div>
+    @foreach(var paint in Model.Paints)
+    {
+        <p>@paint.Name</p>
+    }
+</div>
+<div>
+    <p>@Model.Post.Description</p>
+</div>

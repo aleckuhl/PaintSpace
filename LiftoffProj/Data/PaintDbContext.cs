@@ -13,10 +13,27 @@ namespace LiftoffProj.Data
 
         public DbSet<Post> Posts { get; set; }
 
+        public DbSet<PostLink> PostLinks { get; set; }
+
+        public DbSet<PaintPost> PaintPosts { get; set; }
+
         public PaintDbContext(DbContextOptions<PaintDbContext> options)
            : base(options)
         { }
 
-    
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<PaintPost>()
+        //        .HasKey(bc => new { bc.PaintID, bc.PostID });
+        //    modelBuilder.Entity<PaintPost>()
+        //        .HasOne(bc => bc.Paint)
+        //        .WithMany(b => b.BookCategories)
+        //        .HasForeignKey(bc => bc.BookId);
+        //    modelBuilder.Entity<BookCategory>()
+        //        .HasOne(bc => bc.Category)
+        //        .WithMany(c => c.BookCategories)
+        //        .HasForeignKey(bc => bc.CategoryId);
+        //}
     }
 }
+

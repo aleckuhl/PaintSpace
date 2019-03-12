@@ -4,14 +4,16 @@ using LiftoffProj.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LiftoffProj.Data.Migrations
 {
     [DbContext(typeof(PaintDbContext))]
-    partial class PaintDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190301225452_postlinks")]
+    partial class postlinks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,28 +31,13 @@ namespace LiftoffProj.Data.Migrations
 
                     b.Property<string>("Name");
 
-                    b.HasKey("ID");
-
-                    b.ToTable("Paints");
-                });
-
-            modelBuilder.Entity("LiftoffProj.Models.PaintPost", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("PaintID");
-
-                    b.Property<int>("PostID");
+                    b.Property<int?>("PostID");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("PaintID");
 
                     b.HasIndex("PostID");
 
-                    b.ToTable("PaintPosts");
+                    b.ToTable("Paints");
                 });
 
             modelBuilder.Entity("LiftoffProj.Models.Post", b =>
@@ -82,20 +69,14 @@ namespace LiftoffProj.Data.Migrations
 
                     b.HasIndex("PostID");
 
-                    b.ToTable("PostLinks");
+                    b.ToTable("PostLink");
                 });
 
-            modelBuilder.Entity("LiftoffProj.Models.PaintPost", b =>
+            modelBuilder.Entity("LiftoffProj.Models.Paint", b =>
                 {
-                    b.HasOne("LiftoffProj.Models.Paint", "Paint")
-                        .WithMany("PaintPosts")
-                        .HasForeignKey("PaintID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("LiftoffProj.Models.Post", "Post")
-                        .WithMany("PaintPosts")
-                        .HasForeignKey("PostID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("LiftoffProj.Models.Post")
+                        .WithMany("Paints")
+                        .HasForeignKey("PostID");
                 });
 
             modelBuilder.Entity("LiftoffProj.Models.PostLink", b =>

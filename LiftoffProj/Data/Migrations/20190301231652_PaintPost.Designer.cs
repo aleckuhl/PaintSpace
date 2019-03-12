@@ -4,14 +4,16 @@ using LiftoffProj.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LiftoffProj.Data.Migrations
 {
     [DbContext(typeof(PaintDbContext))]
-    partial class PaintDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190301231652_PaintPost")]
+    partial class PaintPost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +52,7 @@ namespace LiftoffProj.Data.Migrations
 
                     b.HasIndex("PostID");
 
-                    b.ToTable("PaintPosts");
+                    b.ToTable("PaintPost");
                 });
 
             modelBuilder.Entity("LiftoffProj.Models.Post", b =>
@@ -82,7 +84,7 @@ namespace LiftoffProj.Data.Migrations
 
                     b.HasIndex("PostID");
 
-                    b.ToTable("PostLinks");
+                    b.ToTable("PostLink");
                 });
 
             modelBuilder.Entity("LiftoffProj.Models.PaintPost", b =>

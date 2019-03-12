@@ -12,6 +12,7 @@ namespace LiftoffProj.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }
+        public ICollection<PaintPost> PaintPosts { get; set; }
 
         //public static Color HexToColor(string hexColor)
         //{
